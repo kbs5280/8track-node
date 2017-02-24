@@ -1,0 +1,15 @@
+{
+  "name": "8track-node",
+  "version": "1.0.0",
+  "description": "Node server and API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Kris Sparks",
+  "license": "MIT"
+}
