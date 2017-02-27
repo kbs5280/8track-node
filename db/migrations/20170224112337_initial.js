@@ -3,15 +3,15 @@ exports.up = function(knex, Promise) {
   return Promise.all([
     knex.schema.createTable('playlists', function(table) {
       table.increments('id').primary();
-      table.text('name');
+      table.string('name');
 
       table.timestamps();
     }),
 
     knex.schema.createTable('songs', function(table) {
       table.increments('id').primary();
-      table.text('title');
-      table.text('artist');
+      table.string('title');
+      table.string('artist');
 
       table.timestamps();
     }),
