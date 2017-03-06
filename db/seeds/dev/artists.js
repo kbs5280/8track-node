@@ -1,11 +1,11 @@
 exports.seed = function(knex, Promise) {
-  return knex('songs').del()
+  return knex('artists').del()
   .then(() => {
     return Promise.all([
-      knex('songs').insert({
+      knex('artists').insert({
         id: 1,
-        title: 'Title 1',
-        artist_id: 1,
+        name: 'Artist 1',
+
         created_at: new Date
       })
     ]);
