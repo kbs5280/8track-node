@@ -48,7 +48,7 @@ app.get('/api/artists/:id', (request, response) => {
 })
 
 app.post('/api/artists', (request, response) => {
-  const name = request.body.name
+  const name = request.body.name;
   const artist = { name };
 
   database('artists').insert(artist)
@@ -64,9 +64,9 @@ app.post('/api/artists', (request, response) => {
 })
 
 app.post('/api/songs', (request, response) => {
-  const title = request.body.title
-  const artist_id = request.body.artist_id
-  const song = { title, artist_id }
+  const title = request.body.title;
+  const artist_id = request.body.artist_id;
+  const song = { title, artist_id };
 
   database('songs').insert(song)
     .then(function() {
@@ -80,4 +80,39 @@ app.post('/api/songs', (request, response) => {
     })
 })
 
-// put to update here
+app.put('/api/artists', (request, response) => {
+  const name = request.body.name;
+  const id = request.body.id
+
+  database('artists').where('id', id)
+    .update('name', name)
+    .then(function() {
+      database('artists').select()
+              .then(function(artists) {
+                response.status(200).json(artists)
+              })
+              .catch(function(error) {
+                console.error('artist update was unsuccessful, try again')
+              });
+    })
+})
+
+app.put('/api/songs', (request, response) => {
+  const title = request.body.title;
+  const artist_id = request.body.artist_id;
+  const id = request.body.id;
+
+  database('songs').where('id', id)
+    .update('title', title)
+    .update('artist_id', artist_id)
+    .then(function() {
+      database('songs').select()
+              .then(function(songs) {
+                response.status(200).json(songs)
+              })
+              .catch(function() {
+                console.error('song update was unsuccessful, try again')
+              });
+    })
+})
+
