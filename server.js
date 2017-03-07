@@ -97,10 +97,10 @@ app.put('/api/artists', (request, response) => {
     })
 })
 
-app.put('/api/songs', (request, response) => {
+app.put('/api/songs/:id', (request, response) => {
+  const id = request.params.id;
   const title = request.body.title;
   const artist_id = request.body.artist_id;
-  const id = request.body.id;
 
   database('songs').where('id', id)
     .update('title', title)
@@ -116,3 +116,18 @@ app.put('/api/songs', (request, response) => {
     })
 })
 
+app.delete('/api/songs/:id', (request, response) => {
+  const id = request.params.id;
+
+  database('songs').where('id', id)
+    .del()
+    .then(function() {
+      database('songs').select()
+              .then(function(songs) {
+                response.status(200).json(songs)
+              })
+              .catch(function() {
+                console.error('song deletion unsuccessful, try again')
+              });
+    })
+})
