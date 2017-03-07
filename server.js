@@ -37,6 +37,16 @@ app.get('/api/songs', (request, response) => {
     });
 })
 
+app.get('/api/artists/:id', (request, response) => {
+  database('songs').where('artist_id', request.params.id).select()
+    .then(function(songs) {
+      response.status(200).json(songs);
+    })
+    .catch(function(error) {
+      console.error('something is wrong with the redirect')
+    });
+})
+
 app.post('/api/artists', (request, response) => {
   const name = request.body.name;
   const artist = { name };
@@ -44,12 +54,12 @@ app.post('/api/artists', (request, response) => {
   database('artists').insert(artist)
     .then(function() {
       database('artists').select()
-                .then(function(artists) {
-                  response.status(200).json(artists);
-                })
-                .catch(function(error) {
-                  console.error('new artist was not created, try again.')
-                });
+              .then(function(artists) {
+                response.status(200).json(artists);
+              })
+              .catch(function(error) {
+                console.error('new artist was not created, try again.')
+              });
     })
 })
 
@@ -105,3 +115,4 @@ app.put('/api/songs', (request, response) => {
               });
     })
 })
+
