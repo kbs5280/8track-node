@@ -3,55 +3,55 @@ exports.seed = function(knex, Promise) {
   .then(() => {
     return Promise.all([
       knex('songs').insert({
-        id: 1,
+        id: "xxxxy",
         title: 'Title 1',
         artist_id: 1,
         created_at: new Date
       }),
       knex('songs').insert({
-        id: 2,
+        id: "xxxyx",
         title: 'Title 2',
         artist_id: 1,
         created_at: new Date
       }),
       knex('songs').insert({
-        id: 3,
+        id: "xxyxx",
         title: 'Title 3',
         artist_id: 1,
         created_at: new Date
       }),
       knex('songs').insert({
-        id: 4,
+        id: "xyxxx",
         title: 'Title 4',
         artist_id: 2,
         created_at: new Date
       }),
       knex('songs').insert({
-        id: 5,
+        id: "yxxxx",
         title: 'Title 5',
         artist_id: 2,
         created_at: new Date
       }),
       knex('songs').insert({
-        id: 6,
+        id: "xxxyy",
         title: 'Title 6',
         artist_id: 2,
         created_at: new Date
       }),
       knex('songs').insert({
-        id: 7,
+        id: "xxyyx",
         title: 'Title 7',
         artist_id: 3,
         created_at: new Date
       }),
       knex('songs').insert({
-        id: 8,
+        id: ,"xyyxx"
         title: 'Title 8',
         artist_id: 3,
         created_at: new Date
       }),
       knex('songs').insert({
-        id: 9,
+        id: "yxxyy",
         title: 'Title 9',
         artist_id: 3,
         created_at: new Date

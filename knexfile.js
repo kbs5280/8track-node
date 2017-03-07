@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection:'postgres://localhost/playlists',
+    connection:'postgres://localhost/artists',
     migrations: {
       directory: './db/migrations'
     },
@@ -13,7 +13,7 @@ module.exports = {
 
   test: {
     client: 'pg',
-    connection:'postgres://localhost/playlists_test',
+    connection:'postgres://localhost/artists_test',
     migrations: {
       directory: './db/migrations'
     },
