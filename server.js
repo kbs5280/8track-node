@@ -36,3 +36,36 @@ app.get('/api/songs', (request, response) => {
       console.error('something is wrong with the database');
     });
 })
+
+app.post('/api/artists', (request, response) => {
+  const name = request.body.name
+  const artist = { name };
+
+  database('artists').insert(artist)
+    .then(function() {
+      database('artists').select()
+                .then(function(artists) {
+                  response.status(200).json(artists);
+                })
+                .catch(function(error) {
+                  console.error('new artist was not created, try again.')
+                });
+    })
+})
+
+app.post('/api/songs', (request, response) => {
+  const title = request.body.title
+  const artist_id = request.body.artist_id
+  const song = { title, artist_id }
+
+  database('songs').insert(song)
+    .then(function() {
+      database('songs').select()
+              .then(function(songs) {
+                response.status(200).json(songs);
+              })
+              .catch(function(error) {
+                console.error('new song was not created, try again.')
+              });
+    })
+})
