@@ -5,7 +5,8 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary();
       table.string('name');
 
-      table.timestamps();
+      table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
+      table.timestamp('updated_at');
     }),
 
     knex.schema.createTable('songs', function(table) {
@@ -15,7 +16,8 @@ exports.up = function(knex, Promise) {
            .references('id')
            .inTable('artists');
 
-      table.timestamps();
+      table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
+      table.timestamp('updated_at');
     }),
   ])
 };
