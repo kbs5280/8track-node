@@ -80,12 +80,14 @@ app.post('/api/songs', (request, response) => {
     })
 })
 
-app.put('/api/artists', (request, response) => {
+app.put('/api/artists/:id', (request, response) => {
+  const id = request.params.id;
   const name = request.body.name;
-  const id = request.body.id
+  const updated_at = new Date();
 
   database('artists').where('id', id)
     .update('name', name)
+    .update('updated_at', updated_at)
     .then(function() {
       database('artists').select()
               .then(function(artists) {
@@ -101,10 +103,12 @@ app.put('/api/songs/:id', (request, response) => {
   const id = request.params.id;
   const title = request.body.title;
   const artist_id = request.body.artist_id;
+  const updated_at = new Date();
 
   database('songs').where('id', id)
     .update('title', title)
     .update('artist_id', artist_id)
+    .update('updated_at', updated_at)
     .then(function() {
       database('songs').select()
               .then(function(songs) {
