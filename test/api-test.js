@@ -18,8 +18,8 @@ describe('GET /api/artists', ()  => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
-      .end(function(err, res) {
-        if (err) return done(err);
+      .end(function(error, response) {
+        if (error) return done(error);
         done();
       });
   });
@@ -34,8 +34,8 @@ describe('POST /api/artists', () => {
       .post('/api/artists')
       .send(artist)
       .expect(200)
-      .end(function(err, res) {
-        if (err) return done(err);
+      .end(function(error, response) {
+        if (error) return done(error);
         done();
       });
   });
