@@ -91,7 +91,7 @@ app.put('/api/artists/:id', (request, response) => {
     .then(function() {
       database('artists').select()
               .then(function(artists) {
-                response.status(204).json(artists)
+                response.status(200).json(artists)
               })
               .catch(function(error) {
                 console.error('artist update was unsuccessful, try again')
@@ -112,7 +112,7 @@ app.put('/api/songs/:id', (request, response) => {
     .then(function() {
       database('songs').select()
               .then(function(songs) {
-                response.status(204).json(songs)
+                response.status(200).json(songs)
               })
               .catch(function() {
                 console.error('song update was unsuccessful, try again')
