@@ -33,10 +33,41 @@ describe('POST /api/artists', () => {
     request(app)
       .post('/api/artists')
       .send(artist)
-      .expect(200)
+      .expect(201)
       .end(function(error, response) {
         if (error) return done(error);
         done();
+      });
+  });
+});
+
+describe('PUT /api/artists/:id', () => {
+  const artist = { name: 'Test Artist 1', id: 1 }
+
+  it('should update an artist', (done) => {
+
+    request(app)
+      .put(`/api/artists/${artist.id}`)
+      .send(artist)
+      .expect(204)
+      .end(function(error, response) {
+        if (error) return done(error);
+        done();
+      });
+  });
+});
+
+describe('DELETE /api/artists/:id', () => {
+
+  it('should delete an artist', (done) => {
+    const id = 1
+
+    request(app)
+      .delete(`/api/artists/${id}`)
+      .expect(204)
+      .end(function(error, response) {
+        if (error) return done(error);
+        done();;
       });
   });
 });
