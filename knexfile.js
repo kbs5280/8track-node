@@ -1,16 +1,4 @@
 module.exports = {
-  development: {
-    client: 'pg',
-    connection:'postgres://localhost/artists',
-    migrations: {
-      directory: './db/migrations'
-    },
-    seeds: {
-      directory: './db/seeds/dev'
-    },
-    useNullAsDefault: true
-  },
-
   test: {
     client: 'pg',
     connection:'postgres://localhost/artists_test',
@@ -19,6 +7,18 @@ module.exports = {
     },
     seeds: {
       directory: './db/seeds/test'
+    },
+    useNullAsDefault: true
+  },
+
+  development: {
+    client: 'pg',
+    connection:'postgres://localhost/artists',
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds/dev'
     },
     useNullAsDefault: true
   },
