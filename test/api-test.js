@@ -4,32 +4,14 @@ const assert = require('chai').assert;
 const request = require('supertest');
 const app = require('../server');
 const database = require('../db/knex');
+const cleanDatabase = require('./test-helper');
 
 // create separate test file
 // create helper methods in helper file for before functions
 
 describe('API routes', () => {
 
-  beforeEach((done) => {
-    database.migrate.rollback()
-    .then(function() {
-      database.migrate.latest()
-      .then(() => {
-        return database.seed.run()
-        .then(() => {
-          done();
-        });
-      });
-    });
-  });
-
-  // test to ensure function is neccesary
-
-  afterEach((done) => {
-    database.migrate.rollback()
-    .then(() => {
-      done();
-    });
+  beforeEach(() => {
   });
 
   describe('GET /api/artists', ()  => {
