@@ -1,55 +1,54 @@
 process.env.NODE_ENV || 'test';
 
-const database = require('../db/knex');
-
-// const knexCleaner = require('knex-cleaner');
-
 const assert = require('chai').assert;
 const request = require('supertest');
 const app = require('../server');
+const database = require('../db/knex');
 
-// describe('GET /api/artists', ()  => {
-//
-//   it('should return a 200 status code', (done) => {
-//     request(app)
-//       .get('/api/artists')
-//       .expect(200, done);
-//   });
-//
-//   it('should return a json object', (done) => {
-//     request(app)
-//       .get('/api/artists')
-//       .set('Accept', 'application/json')
-//       .expect('Content-Type', /json/)
-//       .expect(200)
-//       .end((error, response) => {
-//         console.log(response.body);
-//         if (error) return done(error);
-//         done();
-//       });
-//   });
-// });
-//
-// describe('GET /api/songs', () => {
-//
-//   it('should return a 200 status code', (done) => {
-//     request(app)
-//       .get('/api/artists')
-//       .expect(200, done);
-//   });
-//
-//   it('should return a json object', (done) => {
-//     request(app)
-//       .get('/api/songs')
-//       .set('Accept', 'application/json')
-//       .expect('Content-Type', /json/)
-//       .expect(200)
-//       .end((error, response) => {
-//         if (error) return done(error);
-//         done();
-//       });
-//   });
-// });
+// *** add specifics to GET requests etc with beforeEach ***
+
+describe('GET /api/artists', ()  => {
+
+  it('should return a 200 status code', (done) => {
+    request(app)
+      .get('/api/artists')
+      .expect(200, done);
+  });
+
+  it('should return a json object', (done) => {
+    request(app)
+      .get('/api/artists')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((error, response) => {
+        console.log(response.body);
+        if (error) return done(error);
+        done();
+      });
+  });
+});
+
+describe('GET /api/songs', () => {
+
+  it('should return a 200 status code', (done) => {
+    request(app)
+      .get('/api/artists')
+      .expect(200, done);
+  });
+
+  it('should return a json object', (done) => {
+    request(app)
+      .get('/api/songs')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((error, response) => {
+        if (error) return done(error);
+        done();
+      });
+  });
+});
 
 describe('API routes', function() {
   beforeEach(function(done) {
@@ -85,7 +84,7 @@ describe('POST /api/artists', () => {
       .end((error, response) => {
         console.log(response.body);
         if(error) return done(error);
-        assert.equal(artist.name, response.body.pop().name);
+        assert.equal(artist.name, response.body.slice(-1)[0].name);
         done();
       });
   });
