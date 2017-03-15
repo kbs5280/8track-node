@@ -17,7 +17,7 @@ if (!module.parent) {
   });
 }
 
-app.get('/api/artists', (request, response) => {
+app.get('/api/v1/artists', (request, response) => {
   database('artists').select()
     .then((artists) => {
       response.status(200).json(artists);
@@ -27,7 +27,7 @@ app.get('/api/artists', (request, response) => {
     });
 })
 
-app.get('/api/songs', (request, response) => {
+app.get('/api/v1/songs', (request, response) => {
   database('songs').select()
     .then((songs) => {
       response.status(200).json(songs);
@@ -37,7 +37,7 @@ app.get('/api/songs', (request, response) => {
     });
 })
 
-app.get('/api/artists/:id', (request, response) => {
+app.get('/api/v1/artists/:id', (request, response) => {
   database('songs').where('artist_id', request.params.id).select()
     .then((songs) => {
       response.status(200).json(songs);
@@ -47,7 +47,7 @@ app.get('/api/artists/:id', (request, response) => {
     });
 })
 
-app.post('/api/artists', (request, response) => {
+app.post('/api/v1/artists', (request, response) => {
   const name = request.body.name;
   const artist = { name };
 
@@ -63,7 +63,7 @@ app.post('/api/artists', (request, response) => {
     })
 })
 
-app.post('/api/songs', (request, response) => {
+app.post('/api/v1/songs', (request, response) => {
   const title = request.body.title;
   const artist_id = request.body.artist_id;
   const song = { title, artist_id };
@@ -80,7 +80,7 @@ app.post('/api/songs', (request, response) => {
     })
 })
 
-app.put('/api/artists/:id', (request, response) => {
+app.put('/api/v1/artists/:id', (request, response) => {
   const id = request.params.id;
   const name = request.body.name;
   const updated_at = new Date();
@@ -99,7 +99,7 @@ app.put('/api/artists/:id', (request, response) => {
     })
 })
 
-app.put('/api/songs/:id', (request, response) => {
+app.put('/api/v1/songs/:id', (request, response) => {
   const id = request.params.id;
   const title = request.body.title;
   const artist_id = request.body.artist_id;
@@ -120,7 +120,7 @@ app.put('/api/songs/:id', (request, response) => {
     })
 })
 
-app.delete('/api/artists/:id', (request, response) => {
+app.delete('/api/v1/artists/:id', (request, response) => {
   const id = request.params.id;
 
   database('artists').where('id', id)
@@ -136,7 +136,7 @@ app.delete('/api/artists/:id', (request, response) => {
     })
 })
 
-app.delete('/api/songs/:id', (request, response) => {
+app.delete('/api/v1/songs/:id', (request, response) => {
   const id = request.params.id;
 
   database('songs').where('id', id)
