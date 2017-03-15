@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
 
-const environment = process.env.NODE_ENV || 'development';
-const configuration = require('./knexfile')[environment];
-const database = require('knex')(configuration);
+const database = require('./db/knex');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -55,7 +53,7 @@ app.post('/api/artists', (request, response) => {
     .then(function() {
       database('artists').select()
               .then(function(artists) {
-                response.status(200).json(artists);
+                response.status(201).json(artists);
               })
               .catch(function(error) {
                 console.error('new artist was not created, try again.')
@@ -72,7 +70,7 @@ app.post('/api/songs', (request, response) => {
     .then(function() {
       database('songs').select()
               .then(function(songs) {
-                response.status(200).json(songs);
+                response.status(201).json(songs);
               })
               .catch(function(error) {
                 console.error('new song was not created, try again.')
@@ -120,6 +118,22 @@ app.put('/api/songs/:id', (request, response) => {
     })
 })
 
+app.delete('/api/artists/:id', (request, response) => {
+  const id = request.params.id;
+
+  database('artists').where('id', id)
+    .del()
+    .then(function() {
+      database('artists').select()
+              .then(function(artists) {
+                response.status(204).json(artists)
+              })
+              .catch(function() {
+                console.error('song deletion unsuccessful, try again')
+              });
+    })
+})
+
 app.delete('/api/songs/:id', (request, response) => {
   const id = request.params.id;
 
@@ -128,10 +142,12 @@ app.delete('/api/songs/:id', (request, response) => {
     .then(function() {
       database('songs').select()
               .then(function(songs) {
-                response.status(200).json(songs)
+                response.status(204).json(songs)
               })
               .catch(function() {
                 console.error('song deletion unsuccessful, try again')
               });
     })
 })
+
+module.exports = app;
