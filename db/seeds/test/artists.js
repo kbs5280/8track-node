@@ -10,6 +10,9 @@ exports.seed = function(knex, Promise) {
       }),
       knex('artists').insert({
         name: 'Test Artist 3',
+      }),
+      knex('artists').insert({
+        name: 'Test Artist 4',
       })
     ]);
   });
