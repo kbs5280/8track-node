@@ -1,6 +1,6 @@
-process.env.NODE_ENV || 'development';
+process.env.NODE_ENV || 'test';
 
-var database = require('../db/knex');
+const database = require('../db/knex');
 
 // const knexCleaner = require('knex-cleaner');
 
