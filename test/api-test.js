@@ -14,17 +14,17 @@ describe('API routes', () => {
   beforeEach(() => {
   });
 
-  describe('GET /api/artists', ()  => {
+  describe('GET /api/v1/artists', ()  => {
 
     it('should return a 200 status code', (done) => {
       request(app)
-        .get('/api/artists')
+        .get('/api/v1/artists')
         .expect(200, done);
     });
 
     it('should return a json object', (done) => {
       request(app)
-        .get('/api/artists')
+        .get('/api/v1/artists')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .expect(200)
@@ -36,17 +36,17 @@ describe('API routes', () => {
     });
   });
 
-  describe('GET /api/songs', () => {
+  describe('GET /api/v1/songs', () => {
 
     it('should return a 200 status code', (done) => {
       request(app)
-        .get('/api/artists')
+        .get('/api/v1/songs')
         .expect(200, done);
     });
 
     it('should return a json object', (done) => {
       request(app)
-        .get('/api/songs')
+        .get('/api/v1/songs')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .expect(200)
@@ -58,13 +58,13 @@ describe('API routes', () => {
     });
   });
 
-  describe('POST /api/artists', () => {
+  describe('POST /api/v1/artists', () => {
 
     it('should create a new artist', (done) => {
       const artist = { name: 'Test POST New Artist' }
 
       request(app)
-        .post('/api/artists')
+        .post('/api/v1/artists')
         .send(artist)
         .expect(201)
         .end((error, response) => {
@@ -76,13 +76,13 @@ describe('API routes', () => {
     });
   });
 
-  describe('POST /api/songs', () => {
+  describe('POST /api/v1/songs', () => {
 
     it('should create a new song', (done) => {
       const song = { title: 'Test POST New Song', artist_id: 1 }
 
       request(app)
-        .post('/api/songs')
+        .post('/api/v1/songs')
         .send(song)
         .expect(201)
         .end((error, response) => {
@@ -94,13 +94,13 @@ describe('API routes', () => {
     })
   });
 
-  describe('PUT /api/artists/:id', () => {
+  describe('PUT /api/v1/artists/:id', () => {
     const artist = { name: 'Test PUT Update Artist 1', id: 1 }
 
     it('should update an artist', (done) => {
 
         request(app)
-          .put(`/api/artists/${artist.id}`)
+          .put(`/api/v1/artists/${artist.id}`)
           .send(artist)
           .expect(200)
           .end((error, response) => {
@@ -112,13 +112,13 @@ describe('API routes', () => {
     });
   });
 
-  describe('PUT /api/songs/:id', () => {
+  describe('PUT /api/v1/songs/:id', () => {
     const song = { title: 'Test PUT Update Song 1', id: 1, artist_id: 1 }
 
     it('should update an song', (done) => {
 
         request(app)
-          .put(`/api/songs/${song.id}`)
+          .put(`/api/v1/songs/${song.id}`)
           .send(song)
           .expect(200)
           .end((error, response) => {
@@ -129,13 +129,13 @@ describe('API routes', () => {
     });
   });
 
-  describe('DELETE /api/artists/:id', () => {
+  describe('DELETE /api/v1/artists/:id', () => {
 
     it('should delete a artist', (done) => {
       const id = 4
 
       request(app)
-      .delete(`/api/artists/${id}`)
+      .delete(`/api/v1/artists/${id}`)
       .expect(204)
       .end(function(error, response) {
         if (error) return done(error);
@@ -144,13 +144,13 @@ describe('API routes', () => {
     });
   });
 
-  describe('DELETE /api/songs/:id', () => {
+  describe('DELETE /api/v1/songs/:id', () => {
 
     it('should delete a song', (done) => {
       const id = 1
 
       request(app)
-      .delete(`/api/songs/${id}`)
+      .delete(`/api/v1/songs/${id}`)
       .expect(204)
       .end(function(error, response) {
         if (error) return done(error);
