@@ -1,4 +1,4 @@
-process.env.NODE_ENV || 'test';
+process.env.NODE_ENV = 'test';
 
 const assert = require('chai').assert;
 const request = require('supertest');
@@ -26,7 +26,7 @@ describe('GET routes', () => {
         .expect(200)
         .end((error, response) => {
           if (error) return done(error);
-          assert.equal(3, response.body.length);
+          assert.equal(4, response.body.length);
           done();
         });
     });

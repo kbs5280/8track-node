@@ -1,4 +1,4 @@
-process.env.NODE_ENV || 'test';
+process.env.NODE_ENV = 'test';
 
 const assert = require('chai').assert;
 const request = require('supertest');
@@ -39,7 +39,8 @@ describe('PUT routes', () => {
           .expect(200)
           .end((error, response) => {
             if (error) return done(error);
-            assert.equal(song.title, response.body.slice(-1)[0].title);
+            const songs = response.body.sort((a, b) => { return b.id - a.id});
+            assert.equal(song.title, songs.slice(-1)[0].title);
             done();
           });
     });
