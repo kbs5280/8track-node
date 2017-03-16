@@ -4,7 +4,7 @@
 
 8Track features test-driven front-end and backend architecture including servers, relational databases, API's, and components.
 
-8Track uses React, CSS, Enzyme, Node, Express, SuperTest, Mocha, Chai, PostgreSQL, Knex, Ruby, Ruby on Rails, RSpec, and Capybara.
+8Track uses React, JavaScript, CSS, Enzyme, Node, Express, SuperTest, Mocha, Chai, PostgreSQL, Knex, Ruby, Ruby on Rails, RSpec, and Capybara.
 
 -----
 
