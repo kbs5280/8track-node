@@ -1,14 +1,26 @@
-# 8Track Node  
+# 8Track  
 
-8Track Node is a Node.js server and API with a PostgreSQL database. The API servers data related to playlists. Each playlist has a set of songs featuring a title and artist.
+8Track is a series of ongoing personal projects designed for personal development. Its purpose is to provide an evolving environment in which to experiment with new languages, libraries and frameworks.
 
-The database was setup using Knex.js. The Node.js API uses Knex.js to query the database.
+8Track features test-driven front-end and backend architecture including servers, relational databases, API's, and components.
 
-The second iteration of this project will feature a React front end which will render the data.
+8Track uses React, Enzyme, Node, Express, SuperTest, Mocha, Chai, PostgreSQL, Knex, Ruby, Ruby on Rails, RSpec, and Capybara.
 
-Server tests utilize HTTP assertions made by, Super-agent driven library, SuperTest.
+-----
+
+# 8Track-Node
+
+8Track Node is a test-driven Node Node API with a PostgreSQL database. It uses Express to run a local server and for HTTP utility methods. The API exposes data related to musical artists and songs.
+
+The database was setup using PostgreSQL and Knex. Knex is used to build the schema, as well as to build SQL queries to the database.
+
+The second iteration of this project will feature a React front end which will render the data to the DOM.
+
+Server tests utilize HTTP assertions made by the Super-agent driven library, SuperTest.
 
 * Node.js
 * Knex.js
 * PostgreSQL
+* Mocha
+* Chai
 * SuperTest
