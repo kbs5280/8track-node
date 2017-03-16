@@ -47,10 +47,27 @@ describe('GET routes', () => {
         .expect('Content-Type', /json/)
         .expect(200)
         .end((error, response) => {
-          assert.equal(9, response.body.length);
           if (error) return done(error);
+          assert.equal(9, response.body.length);
           done();
         });
     });
   });
+
+  describe('GET /api/v1/artists/:id', (done) => {
+    const id = 1
+
+    it('should return a list of songs by artist', (done) => {
+
+      request(app)
+        .get(`/api/v1/artists/${id}`)
+        .expect(200)
+        .end((error, response) => {
+          if (error) return done(error);
+          assert.equal(3, response.body.length);
+          assert.equal("Test Title 3", response.body.slice(-1)[0].title);
+          done();
+        });
+    });
+  })
 });
