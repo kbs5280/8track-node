@@ -19,6 +19,7 @@ The second iteration of this project will feature a React front-end which will r
 Server tests make HTTP assertions performed by the Super-agent driven library, SuperTest, along with Mocha and Chai.
 
 * Node.js
+* Express.js
 * Knex.js
 * PostgreSQL
 * Mocha
