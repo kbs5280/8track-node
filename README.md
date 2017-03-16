@@ -2,7 +2,7 @@
 
 8Track is a series of ongoing projects designed for personal development. Its purpose is to provide an evolving environment in which to experiment with new languages, libraries and frameworks.
 
-8Track features test-driven, front-end and backend architecture including servers, relational databases, API's, and components.
+8Track features test-driven front-end and backend architecture including servers, relational databases, API's, and components.
 
 8Track uses React, CSS, Enzyme, Node, Express, SuperTest, Mocha, Chai, PostgreSQL, Knex, Ruby, Ruby on Rails, RSpec, and Capybara.
 
