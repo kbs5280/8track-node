@@ -3,13 +3,19 @@ exports.seed = function(knex, Promise) {
   .then(() => {
     return Promise.all([
       knex('artists').insert({
-        name: 'Artist 1',
+        name: 'Band of Horses'
       }),
       knex('artists').insert({
-        name: 'Artist 2',
+        name: 'Frightened Rabbit'
       }),
       knex('artists').insert({
-        name: 'Artist 3',
+        name: 'Phosphorescent'
+      }),
+      knex('artists').insert({
+        name: 'Y La Bamba'
+      }),
+      knex('artists').insert({
+        name: 'Darlingside'
       })
     ]);
   });

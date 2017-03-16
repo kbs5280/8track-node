@@ -10,7 +10,7 @@
 
 # 8Track-Node
 
-8Track Node is a test-driven Node API with a PostgreSQL database. It uses Express to run a local server, as well as for HTTP utility methods. The API exposes data related to musical artists and songs.
+8Track Node is a test-driven Node API with a PostgreSQL database. It uses Express to power a server, as well as for HTTP utility methods. The API exposes data related to musical artists and songs.
 
 The database was setup using PostgreSQL and Knex. Knex is used to build the schema, as well as to build SQL queries to the database.
 

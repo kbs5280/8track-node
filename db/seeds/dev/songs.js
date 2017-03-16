@@ -3,40 +3,104 @@ exports.seed = function(knex, Promise) {
   .then(() => {
     return Promise.all([
       knex('songs').insert({
-        title: 'Title 1',
-        artist_id: 1,
+        title: 'The Funeral',
+        artist_id: 1
       }),
       knex('songs').insert({
-        title: 'Title 2',
-        artist_id: 1,
+        title: 'No One\'s Gonna Love You',
+        artist_id: 1
       }),
       knex('songs').insert({
-        title: 'Title 3',
-        artist_id: 1,
+        title: 'I Go to the Barn Because I Like the',
+        artist_id: 1
       }),
       knex('songs').insert({
-        title: 'Title 4',
-        artist_id: 2,
+        title: 'Infinite Arms',
+        artist_id: 1
       }),
       knex('songs').insert({
-        title: 'Title 5',
-        artist_id: 2,
+        title: 'St. Augustine',
+        artist_id: 1
       }),
       knex('songs').insert({
-        title: 'Title 6',
-        artist_id: 2,
+        title: 'I Wish I was Sober',
+        artist_id: 2
       }),
       knex('songs').insert({
-        title: 'Title 7',
-        artist_id: 3,
+        title: 'My Backwards Walk',
+        artist_id: 2
       }),
       knex('songs').insert({
-        title: 'Title 8',
-        artist_id: 3,
+        title: 'Modern Leper',
+        artist_id: 2
       }),
       knex('songs').insert({
-        title: 'Title 9',
-        artist_id: 3,
+        title: 'Die Like a Rich Boy',
+        artist_id: 2
+      }),
+      knex('songs').insert({
+        title: 'Late March, Death March',
+        artist_id: 2
+      }),
+      knex('songs').insert({
+        title: 'Song for Zula',
+        artist_id: 3
+      }),
+      knex('songs').insert({
+        title: 'Muchacho\'s Tune',
+        artist_id: 3
+      }),
+      knex('songs').insert({
+        title: 'Reasons to Quit',
+        artist_id: 3
+      }),
+      knex('songs').insert({
+        title: 'Terror in the Canyons',
+        artist_id: 3
+      }),
+      knex('songs').insert({
+        title: 'The Last Thing I Needed',
+        artist_id: 3
+      }),
+      knex('songs').insert({
+        title: 'Ostrich',
+        artist_id: 4
+      }),
+      knex('songs').insert({
+        title: 'Juniper',
+        artist_id: 4
+      }),
+      knex('songs').insert({
+        title: 'Libre',
+        artist_id: 4
+      }),
+      knex('songs').insert({
+        title: 'Oh February',
+        artist_id: 4
+      }),
+      knex('songs').insert({
+        title: 'Death on the Road',
+        artist_id: 4
+      }),
+      knex('songs').insert({
+        title: 'God of Loss',
+        artist_id: 5
+      }),
+      knex('songs').insert({
+        title: 'Whippoorwill',
+        artist_id: 5
+      }),
+      knex('songs').insert({
+        title: 'The Ancestor',
+        artist_id: 5
+      }),
+      knex('songs').insert({
+        title: 'Blow the House Down',
+        artist_id: 5
+      }),
+      knex('songs').insert({
+        title: '1979',
+        artist_id: 5
       })
     ]);
   });
