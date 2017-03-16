@@ -12,7 +12,7 @@ app.get('/', (request, response) => {
 })
 
 if (!module.parent) {
-  app.listen(8080, () => {
+  app.listen(process.env.PORT || 8080, () => {
     console.log('8track server is live on port 8080! (http://localhost:8080)');
   });
 }
