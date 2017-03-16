@@ -25,3 +25,5 @@ Server tests make HTTP assertions performed by the Super-agent driven library, S
 * Mocha
 * Chai
 * SuperTest
+* CRUD
+* REST
