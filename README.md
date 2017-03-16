@@ -4,11 +4,11 @@
 
 8Track features test-driven, front-end and backend architecture including servers, relational databases, API's, and components.
 
-8Track uses React, Enzyme, Node, Express, SuperTest, Mocha, Chai, PostgreSQL, Knex, Ruby, Ruby on Rails, RSpec, and Capybara.
+8Track uses React, CSS, Enzyme, Node, Express, SuperTest, Mocha, Chai, PostgreSQL, Knex, Ruby, Ruby on Rails, RSpec, and Capybara.
 
 -----
 
-# 8Track-Node
+# 8Track Node
 
 8Track Node is a test-driven Node API with a PostgreSQL database. It uses Express to power a server, as well as for HTTP utility methods. The API exposes data related to musical artists and songs.
 
