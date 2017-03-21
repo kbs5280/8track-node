@@ -8,6 +8,9 @@
 
 -----
 
+![8Track Screen Shot](https://github.com/kbs5280/8track-node/blob/master/screen_shot.png)
+-----
+
 # 8Track Node
 
 8Track Node is a test-driven Node API with a PostgreSQL database. It uses Express to power a server, as well as for HTTP utility methods. The API exposes data related to musical artists and songs.
