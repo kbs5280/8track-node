@@ -77,7 +77,7 @@ describe('GET routes', () => {
 
   describe('GET /api/v1/artists-songs', (done) => {
 
-    it('should return a list of artists and their songs', (done) => {
+    it('should return a list of artists and songs', (done) => {
 
       request(app)
         .get('/api/v1/artists-songs')

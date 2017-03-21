@@ -31,7 +31,7 @@ describe('PUT routes', () => {
   describe('PUT /api/v1/songs/:id', () => {
     const song = { title: 'Test PUT Update Song 1', id: 1, artist_id: 1 }
 
-    it('should update an song', (done) => {
+    it('should update a song', (done) => {
 
         request(app)
           .put(`/api/v1/songs/${song.id}`)

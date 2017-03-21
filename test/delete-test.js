@@ -12,7 +12,7 @@ describe('DELETE routes', () => {
 
   describe('DELETE /api/v1/artists/:id', () => {
 
-    it('should delete a artist', (done) => {
+    it('should delete an artist', (done) => {
       const id = 4
 
       request(app)
@@ -27,7 +27,7 @@ describe('DELETE routes', () => {
 
   describe('DELETE /api/v1/songs/:id', () => {
 
-    it('should delete a song', (done) => {
+    it('should delete an song', (done) => {
       const id = 1
 
       request(app)
