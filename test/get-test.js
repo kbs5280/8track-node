@@ -65,7 +65,32 @@ describe('GET routes', () => {
         .end((error, response) => {
           if (error) return done(error);
           assert.equal(3, response.body.length);
-          assert.equal("Test Title 3", response.body.slice(-1)[0].title);
+          const songs = response.body.sort((a, b) => {
+            return parseInt(a.title.slice(-1)) -
+                   parseInt(b.title.slice(-1))
+          });
+          assert.equal("Test Title 3", songs.slice(-1)[0].title);
+          done();
+        });
+    });
+  })
+
+  describe('GET /api/v1/artists-songs', (done) => {
+
+    it('should return a list of artists and their songs', (done) => {
+
+      request(app)
+        .get('/api/v1/artists-songs')
+        .expect(200)
+        .end((error, response) => {
+          if (error) return done(error);
+          assert.equal(9, response.body.length);
+          const songs = response.body.sort((a, b) => {
+            return parseInt(a.name.slice(-1)) -
+                    parseInt(b.name.slice(-1))
+          });
+          assert.deepEqual({ name: 'Test Artist 3', title: 'Test Title 7' },
+          songs.slice(-1)[0]);
           done();
         });
     });

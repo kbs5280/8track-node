@@ -47,6 +47,17 @@ app.get('/api/v1/artists/:id', (request, response) => {
     });
 })
 
+app.get('/api/v1/artists-songs', (request, response) => {
+  database('artists').join('songs', 'artists.id', '=', 'songs.artist_id')
+                     .select('artists.name', 'songs.title')
+    .then((data) => {
+      response.status(200).json(data);
+    })
+    .catch((error) => {
+      console.error('something is wrong with the request');
+    });
+})
+
 app.post('/api/v1/artists', (request, response) => {
   const name = request.body.name;
   const artist = { name };
