@@ -8,7 +8,7 @@
 
 -----
 
-[8Track Screen Shot](https://github.com/kbs5280/8track-node/blob/master/screen_shot.png)
+![8Track Screen Shot](https://github.com/kbs5280/8track-node/blob/master/screen_shot.png)
 -----
 
 # 8Track Node
